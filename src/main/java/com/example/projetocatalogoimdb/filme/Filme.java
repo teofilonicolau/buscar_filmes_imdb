@@ -1,99 +1,88 @@
+// Classe Filme
 package com.example.projetocatalogoimdb.filme;
 
-import com.example.projetocatalogoimdb.ator.Ator;
 import com.example.projetocatalogoimdb.diretor.Diretor;
+import com.example.projetocatalogoimdb.ator.Ator;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Locale;
+import java.util.List;
 
 public class Filme {
-    private String nomeFilme;
-    private String descricaoFilme;
-    private String genero;
+    private String titulo;
+    private String genero; // Adicionado o atributo genero
+    private int duracao;
+    private List<Ator> atores;
     private Diretor diretor;
-    private LocalDate dataLancamento;
     private double orcamento;
-    private Ator[] atores;
-    private String duracao;
 
-    // Construtor corrigido
-    public Filme(String nomeFilme, String descricaoFilme, String genero, Diretor diretor, LocalDate dataLancamento, double orcamento, Ator[] atores) {
-        this.nomeFilme = nomeFilme;
-        this.descricaoFilme = descricaoFilme;
+
+    public Filme(String titulo, String genero, Diretor diretor, int duracao, List<Ator> atores, double orcamento) {
+        this.titulo = titulo;
         this.genero = genero;
         this.diretor = diretor;
-        this.dataLancamento = dataLancamento;
+        this.duracao = duracao;
+        this.atores = atores;
         this.orcamento = orcamento;
-        this.atores = atores;
     }
 
-    // Getters
 
-    public String getNomeFilme() {
-        return this.nomeFilme;
+
+    public String getTitulo() {
+        return titulo;
     }
 
-    // Getter para o gênero
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getGenero() {
-        return this.genero;
-    }
-    public Diretor getDiretor() {
-        return this.diretor;
+        return genero;
     }
 
-    public LocalDate getDataLancamento() {
-        return this.dataLancamento;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
-    public double getOrcamento() {
-        return this.orcamento;
+    public int getDuracao() {
+        return duracao;
     }
 
-    public String getDescricaoFilme() {
-        return this.descricaoFilme;
+    public void setDuracao(int duracao) {
+        this.duracao = duracao;
     }
 
-    public Ator[] getAtores() {
-        return this.atores;
+    public List<Ator> getAtores() {
+        return atores;
     }
 
-    // Setter para Atores
-    public void setAtores(Ator[] atores) {
+    public void setAtores(List<Ator> atores) {
         this.atores = atores;
     }
 
-    // Setter para Diretor
+    public Diretor getDiretor() {
+        return diretor;
+    }
+
     public void setDiretor(Diretor diretor) {
         this.diretor = diretor;
     }
 
-    // Método toString personalizado
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("Nome: ").append(nomeFilme).append("\n");
-        sb.append("Descrição: ").append(descricaoFilme).append("\n");
-        sb.append("Gênero: ").append(genero).append("\n");
-        sb.append("Diretor: ").append(diretor != null ? diretor.getNomeDiretor() : "N/A").append("\n");
-        sb.append("Data de Lançamento: ").append(dataLancamento != null ? dataLancamento.toString() : "N/A").append("\n");
-        sb.append("Orçamento: ").append(orcamento).append("\n");
-        sb.append("Atores: ").append(Arrays.toString(atores)).append("\n");
-        return sb.toString();
+    public double getOrcamento() {
+        return orcamento;
     }
 
-    public String getDuracao() {
-        return this.duracao != null ? this.duracao : "Não disponível";
+    public void setOrcamento(double orcamento) {
+        this.orcamento = orcamento;
     }
-    public boolean atorParticipou(String nomeAtor) {
-        if (atores != null) {
-            for (Ator ator : atores) {
-                if (ator.getNomeAtor().equalsIgnoreCase(nomeAtor)) {
-                    return true;
-                }
-            }
-        }
-        return false;
+
+    @Override
+    public String toString() {
+        return "Filme{" +
+                "titulo='" + titulo + '\'' +
+                ", genero='" + genero + '\'' +
+                ", diretor=" + diretor +
+                ", duracao=" + duracao +
+                ", atores=" + atores +
+                ", orcamento=" + orcamento +
+                '}';
     }
 }

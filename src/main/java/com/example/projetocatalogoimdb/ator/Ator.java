@@ -1,13 +1,18 @@
 package com.example.projetocatalogoimdb.ator;
 
 public class Ator {
-    private String nomeAtor;
+    private int idAtor;
+   private String nomeAtor;
 
     public Ator(String nomeAtor) {
         this.nomeAtor = nomeAtor;
     }
 
+    public int getIdAtor() {
+        return idAtor;
+    }
+
     public String getNomeAtor() {
-        return this.nomeAtor;
+        return nomeAtor;
     }
 }

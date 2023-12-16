@@ -1,18 +1,19 @@
 package com.example.projetocatalogoimdb.diretor;
 
 public class Diretor {
+    private int idDiretor;
     private String nomeDiretor;
 
-    // Adicione o modificador de acesso public ao construtor
-    public Diretor(String nomeDiretor) {
+    public Diretor(int idDiretor, String nomeDiretor) {
+        this.idDiretor = idDiretor;
         this.nomeDiretor = nomeDiretor;
     }
 
-    public String getNomeDiretor() {
-        return this.nomeDiretor;
+    public int getIdDiretor() {
+        return idDiretor;
     }
 
-    public String getDescricaoDiretor() {
-        return this.getDescricaoDiretor();
+    public String getNomeDiretor() {
+        return nomeDiretor;
     }
 }
